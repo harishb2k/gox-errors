@@ -1,35 +1,39 @@
 package errors
 
 import (
-	"errors"
-	e "github.com/pkg/errors"
+    "errors"
+    e "github.com/pkg/errors"
 )
 
 type Error interface {
-	error
+    error
 }
 
 func New(text string) error {
-	return errors.New(text)
+    return errors.New(text)
 }
 
 func Wrap(err error, message string) error {
-	return e.Wrap(err, message)
+    return e.Wrap(err, message)
 }
 
 func Cause(err error) error {
-	return e.Cause(err)
+    return e.Cause(err)
 }
 
 func Is(err, target error) bool {
-	return errors.Is(err, target)
+    return errors.Is(err, target)
 }
 
 func As(err error, target interface{}) bool {
-	return errors.As(err, target)
+    return errors.As(err, target)
 }
 
 func AsErrorObj(err error) (e *ErrorObj, ok bool) {
-	ok = errors.As(err, &e)
-	return
+    ok = errors.As(err, &e)
+    return
+}
+
+func Version() string {
+    return "v0.0.3"
 }
