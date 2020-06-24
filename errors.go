@@ -35,5 +35,5 @@ func AsErrorObj(err error) (e *ErrorObj, ok bool) {
 }
 
 func Version() string {
-    return "v0.0.3"
+    return "v0.0.4"
 }
